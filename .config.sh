@@ -1,11 +1,11 @@
-VBOX_MANAGE="/c/Program Files/Oracle/VirtualBox/VBoxManage"
+VBoxManage="/c/Program Files/Oracle/VirtualBox/VBoxManage"
 
 function vm-on { 
-  "$VBOX_MANAGE" startvm "$1" --type headless 
+  "$VBoxManage" startvm "$1" --type headless 
 }
 
 function vm-off { 
-  "$VBOX_MANAGE" controlvm "$1" poweroff 
+  "$VBoxManage" controlvm "$1" poweroff 
 }
 
 function vm-ssh {
