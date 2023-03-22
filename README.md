@@ -16,9 +16,12 @@
 
 ### Download [00_initial.sh](https://raw.githubusercontent.com/proman3419/Kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh)
 ```bash
-wget -P /tmp/ https://raw.githubusercontent.com/proman3419/Kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh
-chmod +x /tmp/00_initial.sh
+wget -P ~ https://raw.githubusercontent.com/proman3419/Kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh
+chmod +x ~/00_initial.sh
 ```
+
+### Shutdown VM and change the adapter's options
+![image](https://user-images.githubusercontent.com/29145519/226700209-2f4f55f6-8add-4c75-a296-d5e44a5c4df7.png)
 
 ### Create a snapshot "Pre 00_initial"
 It will be useful when setting up another VMs
@@ -29,15 +32,12 @@ It will be useful when setting up another VMs
 ```
 Shutdown the VM after
 
-### Change the adapter's options
-![image](https://user-images.githubusercontent.com/29145519/226700209-2f4f55f6-8add-4c75-a296-d5e44a5c4df7.png)
-
 ### Create a snapshot "00_initial"
 
 ### Create 2 more VMs
 From now on all steps will have to be applied to all VMs
 1. Restore the VM you already have to the snapshot "Pre 00_initial"
-2. Clone it
+2. Clone it and restore to "Pre 00_initial"
 
 ![image](https://user-images.githubusercontent.com/29145519/227028228-2d5206c7-7eed-47e4-83c8-a5c7f3e26f8d.png)
 ![image](https://user-images.githubusercontent.com/29145519/227028319-17612d80-3db4-4e98-915c-ab8700a85531.png)
