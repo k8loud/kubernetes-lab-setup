@@ -1,6 +1,6 @@
 # Kubernetes-lab-setup
 
-### Prerequisites
+## Prerequisites
 - VirtualBox
 - SSH client
 - Git BASH (Windows)
@@ -26,32 +26,34 @@ chmod +x ~/00_initial.sh
 ### Create a snapshot "Pre 00_initial"
 It will be useful when setting up another VMs
 
-### Run [00_initial.sh](https://raw.githubusercontent.com/proman3419/Kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh)
-```bash
-/tmp/00_initial.sh
-```
-Shutdown the VM after
-
-### Create a snapshot "00_initial"
-
 ### Create 2 more VMs
-From now on all steps will have to be applied to all VMs
-1. Restore the VM you already have to the snapshot "Pre 00_initial"
-2. Clone it and restore to "Pre 00_initial"
+**Make sure the VM's state is up to date with the "Pre 00_initial" snapshot**
 
 ![image](https://user-images.githubusercontent.com/29145519/227028228-2d5206c7-7eed-47e4-83c8-a5c7f3e26f8d.png)
 ![image](https://user-images.githubusercontent.com/29145519/227028319-17612d80-3db4-4e98-915c-ab8700a85531.png)
 ![image](https://user-images.githubusercontent.com/29145519/227028389-dce21682-b249-408c-abd0-7ed49630224a.png)
 
-3. [Change the adapter's options](change-the-adapter's-options)
-4. Set up an SSH connection from your physical machine to the VMs. This step is optional but worth considering since these VMs don't support copy-paste so it's tedious to type commands by hand. The setup process is described in [this section](#physical-machine-setup)
-5. Change hostname
+From now on all steps will have to be applied to all VMs
+
+### Run [00_initial.sh](https://raw.githubusercontent.com/proman3419/Kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh)
+```bash
+~/00_initial.sh
+```
+Shutdown the VM after
+
+### Create a snapshot "00_initial"
+
+### Set up an SSH connection from your physical machine to the VM
+This step is optional but worth considering since these VMs don't support copy-paste so it's tedious to type commands by hand.
+The setup process is described in [this section](#physical-machine-setup)
+
+### Change hostname
 ```bash
 hostnamectl set-hostname <kube$i>
 ```
-6. Keep all of the VMs running
 
 ### Run [01_after_adapter_setup.sh](https://raw.githubusercontent.com/proman3419/Kubernetes-lab-setup/master/scripts/ubuntu_server_setup/01_after_adapter_setup.sh)
+**Make sure all of the VMs are on before running the script**
 ```bash
 ~/kubernetes_lab_setup_repo/scripts/ubuntu_server_setup/01_after_adapter_setup.sh
 ```
