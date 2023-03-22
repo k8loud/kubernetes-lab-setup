@@ -13,7 +13,9 @@
 1. Install a clean Ubuntu Server: [ISO](https://ubuntu.com/download/server)
 2. Run [00_initial.sh](https://raw.githubusercontent.com/proman3419/Kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh) on the VM
 ```bash
-wget -P /tmp/ https://raw.githubusercontent.com/proman3419/Kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh && chmod +x /tmp/00_initial.sh && /tmp/00_initial.sh
+wget -P /tmp/ https://raw.githubusercontent.com/proman3419/Kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh
+chmod +x /tmp/00_initial.sh
+/tmp/00_initial.sh
 ```
 3. Shutdown the VM
 
@@ -28,11 +30,14 @@ hostnamectl set-hostname <kube$i>
 ```
 
 ### On each VM run [01_after_adapter_setup.sh](https://raw.githubusercontent.com/proman3419/Kubernetes-lab-setup/master/scripts/ubuntu_server_setup/01_after_adapter_setup.sh)
+```bash
+~/kubernetes_lab_setup_repo/scripts/ubuntu_server_setup/01_after_adapter_setup.sh
+```
 
 ## Physical machine setup
-### Download [.config](https://github.com/proman3419/Kubernetes-lab-setup/blob/master/.config.sh) on your physical machine
+### Download [.kubernetes_lab_config.sh](https://github.com/proman3419/Kubernetes-lab-setup/blob/master/configs/.kubernetes_lab_config.sh) on your physical machine
 ```bash
-wget -P ~ https://raw.githubusercontent.com/proman3419/Kubernetes-lab-setup/master/configs/.config.sh
+wget -P ~ https://raw.githubusercontent.com/proman3419/Kubernetes-lab-setup/master/configs/.kubernetes_lab_config.sh
 ```
 Adjust the variables section
 ```bash

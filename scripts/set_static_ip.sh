@@ -24,6 +24,6 @@ echo "Interface name: ${INT_NAME}"
 echo "Host IP/mask: ${HOST_IP_MASK}" 
 echo "Default gateway IP: ${DEFAULT_GATEWAY_IP}"
 
-# The IP can still be taken when the machine is down
-# In such case re-run the script
+# The IP can still be taken when the machine is down, in such case re-run the script and update IP variables in .kubernetes_lab_config.sh
+# The better approach is to set MAC - IP rules on your router but it might be out of reach. It guarantees that the IP won't be taken by another machine
 # If you're planning to set up multiple machines with this script then keep them running to avoid IP addresses' conflicts
