@@ -1,0 +1,16 @@
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multi>
+# Ensure that the script will "exit 0" on success >
+# value on error.
+#
+# To enable or disable this script, just change th>
+# bits.
+#
+# By default, this script does nothing.
+
+${KUBERNETES_LAB_SETUP_REPO_PATH}/scripts/set_static_ip.sh
+
+exit 0
