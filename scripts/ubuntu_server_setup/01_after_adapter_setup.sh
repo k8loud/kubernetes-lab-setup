@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-# Enable static IP binding
-sudo cp ${KUBERNETES_LAB_SETUP_REPO_PATH}/configs/rc.local /etc/rc.local
-sudo cp ${KUBERNETES_LAB_SETUP_REPO_PATH}/configs/rc.local.service /etc/systemd/system/rc-local.service
-systemctl enable rc.local
+# Enable static IP binding service
+# It will be run on startup of the system
+sudo cp ~/kubernetes_lab_setup_repo/configs/static_ip_binding.service /etc/systemd/system/static_ip_binding.service
+systemctl enable static_ip_binding.service

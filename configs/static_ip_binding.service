@@ -1,0 +1,8 @@
+[Unit]
+Description=Static IP binding
+
+[Service]
+ExecStart=/bin/bash /home/kube1/kubernetes_lab_setup_repo/scripts/set_static_ip.sh
+
+[Install]
+WantedBy=multi-user.target
