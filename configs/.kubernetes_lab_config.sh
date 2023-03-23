@@ -1,7 +1,7 @@
 VBOX_MANAGE_PATH="/c/Program\ Files/Oracle/VirtualBox/VBoxManage"
 KUBE1_IP="192.168.1.28"
-KUBE2_IP="192.168.1.29"
-KUBE3_IP="192.168.1.30"
+KUBE2_IP="192.168.1.31"
+KUBE3_IP="192.168.1.32"
 
 alias VBoxManage="$VBOX_MANAGE_PATH"
 
