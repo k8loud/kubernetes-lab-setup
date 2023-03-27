@@ -14,7 +14,7 @@
 
 ### Create a snapshot "Clean install"
 
-### Download [00_initial.sh](https://github.com/proman3419/Kubernetes-lab-setup/blob/master/scripts/ubuntu_server_setup/00_initial.sh)
+### Download [00_initial.sh](https://raw.githubusercontent.com/k8loud/Kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh)
 ```bash
 wget -P ~ https://raw.githubusercontent.com/proman3419/Kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh
 chmod +x ~/00_initial.sh
@@ -35,7 +35,7 @@ It will be useful when setting up another VMs
 
 From now on all steps will have to be applied to all VMs
 
-### Run [00_initial.sh](https://github.com/proman3419/Kubernetes-lab-setup/blob/master/scripts/ubuntu_server_setup/00_initial.sh)
+### Run [00_initial.sh](https://raw.githubusercontent.com/k8loud/Kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh)
 ```bash
 ~/00_initial.sh
 ```
@@ -52,7 +52,7 @@ The setup process is described in [this section](#physical-machine-setup)
 hostnamectl set-hostname <kube$i>
 ```
 
-### Run [01_after_adapter_setup.sh](https://github.com/proman3419/Kubernetes-lab-setup/blob/master/scripts/ubuntu_server_setup/01_after_adapter_setup.sh)
+### Run [01_after_adapter_setup.sh](https://raw.githubusercontent.com/k8loud/Kubernetes-lab-setup/master/scripts/ubuntu_server_setup/01_after_adapter_setup.sh)
 **Make sure all of the VMs are on before running the script**
 ```bash
 ~/kubernetes_lab_setup_repo/scripts/ubuntu_server_setup/01_after_adapter_setup.sh
@@ -61,7 +61,7 @@ hostnamectl set-hostname <kube$i>
 ### Create a snapshot "01_after_adapter_setup"
 
 ## Physical machine setup
-### Download [.kubernetes_lab_config.sh](https://github.com/proman3419/Kubernetes-lab-setup/blob/master/configs/.kubernetes_lab_config.sh) on your physical machine
+### Download [.kubernetes_lab_config.sh](https://raw.githubusercontent.com/k8loud/Kubernetes-lab-setup/master/configs/.kubernetes_lab_config.sh) on your physical machine
 ```bash
 wget -P ~ https://raw.githubusercontent.com/proman3419/Kubernetes-lab-setup/master/configs/.kubernetes_lab_config.sh
 ```
