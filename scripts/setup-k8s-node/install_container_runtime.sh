@@ -21,7 +21,6 @@ EOF
 sudo sysctl --system
 
 # Add Cri-o repo
-sudo -i
 OS="xUbuntu_22.04"
 VERSION=1.26
 echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
@@ -30,8 +29,8 @@ curl -L https://download.opensuse.org/repositories/devel:kubic:libcontainers:sta
 curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/Release.key | apt-key add -
 
 # Install CRI-O
-sudo apt update
-sudo apt install cri-o cri-o-runc
+sudo apt update -y
+sudo apt install cri-o cri-o-runc -y
 
 # Start and enable Service
 sudo systemctl daemon-reload
