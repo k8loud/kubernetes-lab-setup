@@ -96,5 +96,14 @@ From now on you won't be prompted to enter a password when connecting via SSH.
 vm-kube1-off
 ```
 
+## Setup kubernetes node
+
+1. Enter scripts/setup-k8s-node directory
+2. Make sure all scripts in aforementioned folder are runnable (```chmod +x ./*```)
+3. Run ```sudo ./03_big_pp_script.sh```
+4. Next steps depend on the node type you want to create
+   1. for control-plan run ```sudo ./04_init_controll_plane.sh```
+   2. to join a node to the cluster on a master node run ```kubeadm token create --print-join-command``` and run prompted command with sudo mode in worker node
+
 ## Resources
 [How to Install Ubuntu Server on VirtualBox](https://hibbard.eu/install-ubuntu-virtual-box/)
