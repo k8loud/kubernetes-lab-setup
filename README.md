@@ -102,7 +102,15 @@ vm-kube1-off
 2. Make sure all scripts in aforementioned folder are runnable (```chmod +x ./*```)
 3. Run ```sudo ./03_big_pp_script.sh```
 4. Next steps depend on the node type you want to create
-   1. for control-plan run ```sudo ./04_init_controll_plane.sh```
+   1. for control-plan 
+      1. run ```sudo ./04_init_controll_plane.sh```
+      2. run 
+         ```
+         mkdir -p $HOME/.kube
+         sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+         sudo chown $(id -u):$(id -g) $HOME/.kube/config
+         ```
+  
    2. to join a node to the cluster on a master node run ```kubeadm token create --print-join-command``` and run prompted command with sudo mode in worker node
 
 ## Resources
