@@ -58,6 +58,13 @@ hostnamectl set-hostname <kube$i>
 ~/kubernetes_lab_setup_repo/scripts/ubuntu_server_setup/01_after_adapter_setup.sh
 ```
 
+### Change processors amount and RAM on each VM
+
+1. Turn off your VM
+2. Go to Settings/System
+3. In Processor, change CPU amout to at least 2
+4. In Motherboard, change RAM to at least 2GB
+
 ### Create a snapshot "01_after_adapter_setup"
 
 ## Physical machine setup
