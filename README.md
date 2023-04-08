@@ -106,11 +106,10 @@ vm-kube1-off
 ## Setup kubernetes node
 
 1. Enter scripts/setup-k8s-node directory
-2. Make sure all scripts in aforementioned folder are runnable (```chmod +x ./*```)
-3. Run ```sudo ./03_big_pp_script.sh```
-4. Next steps depend on the node type you want to create
+2. Run ```sudo ./02_big_pp_script.sh```
+3. Next steps depend on the node type you want to create
    1. for control-plan 
-      1. run ```sudo ./04_init_controll_plane.sh```
+      1. run ```sudo ./03_init_controll_plane.sh```
       2. run 
          ```
          mkdir -p $HOME/.kube
