@@ -121,3 +121,4 @@ vm-kube1-off
 
 ## Resources
 [How to Install Ubuntu Server on VirtualBox](https://hibbard.eu/install-ubuntu-virtual-box/)
+[Install Kubernetes Cluster on Ubuntu 22.04 with kubeadm](https://computingforgeeks.com/install-kubernetes-cluster-ubuntu-jammy/)
