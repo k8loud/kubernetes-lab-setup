@@ -104,7 +104,6 @@ vm-kube1-off
 ```
 
 ## Setup kubernetes node
-
 1. Enter scripts/setup-k8s-node directory
 2. Run ```sudo ./02_big_pp_script.sh```
 3. Next steps depend on the node type you want to create
@@ -121,4 +120,5 @@ vm-kube1-off
 
 ## Resources
 [How to Install Ubuntu Server on VirtualBox](https://hibbard.eu/install-ubuntu-virtual-box/)
+
 [Install Kubernetes Cluster on Ubuntu 22.04 with kubeadm](https://computingforgeeks.com/install-kubernetes-cluster-ubuntu-jammy/)
