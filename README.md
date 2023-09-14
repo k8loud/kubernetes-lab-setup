@@ -1,4 +1,4 @@
-# Kubernetes-lab-setup
+# kubernetes-lab-setup
 
 ## Prerequisites
 - VirtualBox
@@ -9,14 +9,14 @@
 
 ## VM setup
 ### Get a clean install of Ubuntu Server
-- [Ready VirtualBox image (login: kube1, password: kube1)](https://drive.google.com/drive/folders/1G2dPVc7KuywBpo7x3FYjypA1Iik9VFWG?usp=share_link)
-- [Alternative installation from scratch](https://ubuntu.com/download/server)
+- [Cloud images Ubuntu](https://cloud-images.ubuntu.com/)
+- [Official Ubuntu website](https://ubuntu.com/download/server)
 
 ### Create a snapshot "Clean install"
 
-### Download [00_initial.sh](https://raw.githubusercontent.com/k8loud/Kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh)
+### Download [00_initial.sh](https://raw.githubusercontent.com/k8loud/kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh)
 ```bash
-wget -P ~ https://raw.githubusercontent.com/proman3419/Kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh
+wget -P ~ https://raw.githubusercontent.com/k8loud/kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh
 chmod +x ~/00_initial.sh
 ```
 
@@ -35,7 +35,7 @@ It will be useful when setting up another VMs
 
 From now on all steps will have to be applied to all VMs
 
-### Run [00_initial.sh](https://raw.githubusercontent.com/k8loud/Kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh)
+### Run [00_initial.sh](https://raw.githubusercontent.com/k8loud/kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh)
 ```bash
 ~/00_initial.sh
 ```
@@ -52,10 +52,10 @@ The setup process is described in [this section](#physical-machine-setup)
 hostnamectl set-hostname <kube$i>
 ```
 
-### Run [01_after_adapter_setup.sh](https://raw.githubusercontent.com/k8loud/Kubernetes-lab-setup/master/scripts/ubuntu_server_setup/01_after_adapter_setup.sh)
+### Run [01_after_adapter_setup.sh](https://raw.githubusercontent.com/k8loud/kubernetes-lab-setup/master/scripts/ubuntu_server_setup/01_after_adapter_setup.sh)
 **Make sure all of the VMs are on before running the script**
 ```bash
-~/kubernetes_lab_setup_repo/scripts/ubuntu_server_setup/01_after_adapter_setup.sh
+~/kubernetes-lab-setup-repo/scripts/ubuntu_server_setup/01_after_adapter_setup.sh
 ```
 
 ### Change processors amount and RAM on each VM
@@ -68,9 +68,9 @@ hostnamectl set-hostname <kube$i>
 ### Create a snapshot "01_after_adapter_setup"
 
 ## Physical machine setup
-### Download [.kubernetes_lab_config.sh](https://raw.githubusercontent.com/k8loud/Kubernetes-lab-setup/master/configs/.kubernetes_lab_config.sh) on your physical machine
+### Download [.kubernetes_lab_config.sh](https://raw.githubusercontent.com/k8loud/kubernetes-lab-setup/master/configs/.kubernetes_lab_config.sh) on your physical machine
 ```bash
-wget -P ~ https://raw.githubusercontent.com/proman3419/Kubernetes-lab-setup/master/configs/.kubernetes_lab_config.sh
+wget -P ~ https://raw.githubusercontent.com/k8loud/kubernetes-lab-setup/master/configs/.kubernetes_lab_config.sh
 ```
 Adjust the variables section
 ```bash
@@ -94,7 +94,7 @@ vm-kube1-on
 
 ### Add your physical machine's SSH key to the VM's authorized_keys
 ```bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub kube1@${KUBE1_IP}
+ssh-copy-id -i ~/.ssh/id_rsa.pub kube@${KUBE1_IP}
 ```
 From now on you won't be prompted to enter a password when connecting via SSH.
 

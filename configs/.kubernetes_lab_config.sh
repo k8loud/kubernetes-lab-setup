@@ -14,7 +14,7 @@ function vm-off {
 }
 
 function vm-ssh {
-  ssh kube1@"$1"
+  ssh kube@"$1"
 }
 export -f vm-ssh
 
