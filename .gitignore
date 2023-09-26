@@ -1,0 +1,4 @@
+.idea/
+vm_images/
+terraform/.terraform*
+terraform/terraform.*

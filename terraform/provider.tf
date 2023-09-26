@@ -9,7 +9,7 @@ terraform {
 }
 
 provider "openstack" {
-  user_name = "plgppycia"
+  user_name = "plgproman" # TODO: Move to a variable file
   auth_url = "https://api.cloud.cyfronet.pl:5000/v3"
   region = "RegionOne"
   user_domain_name = "Default"

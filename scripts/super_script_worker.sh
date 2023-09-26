@@ -1,5 +1,19 @@
 #!/bin/bash
 
+echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf
+sudo apt -y install resolvconf
+
+sudo mkdir -p /etc/resolvconf/resolv.conf.d
+echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolvconf/resolv.conf.d/head
+sudo resolvconf -u
+
+sudo apt update
+sudo apt -y upgrade
+sudo apt-get -y install openssh-server
+
+ssh-keygen -o -b 4096 -t rsa
+
+git clone https://github.com/k8loud/kubernetes-lab-setup.git ~/kubernetes-lab-setup
 
 
 sudo apt install curl apt-transport-https -y
@@ -75,9 +89,3 @@ sudo systemctl daemon-reload
 sudo systemctl restart crio
 sudo systemctl enable crio
 systemctl status crio
-
-systemctl enable kubelet
-
-kubeadm config images pull
-
-kubeadm init --pod-network-cidr=10.244.0.0/16
