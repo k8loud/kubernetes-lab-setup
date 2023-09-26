@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf
-sudo apt -y install resolvconf
+sudo apt update
+echo "Y" | sudo apt -y install resolvconf
 
 sudo mkdir -p /etc/resolvconf/resolv.conf.d
 echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolvconf/resolv.conf.d/head
@@ -89,3 +90,5 @@ sudo systemctl daemon-reload
 sudo systemctl restart crio
 sudo systemctl enable crio
 systemctl status crio
+
+echo "=== FINISHED ==="

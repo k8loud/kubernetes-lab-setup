@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf
-sudo apt -y install resolvconf
+sudo apt update
+echo "Y" | sudo apt -y install resolvconf
 
 sudo mkdir -p /etc/resolvconf/resolv.conf.d
 echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolvconf/resolv.conf.d/head
@@ -105,3 +106,7 @@ kubeadm token create --print-join-command
 # TODO: Automate joining cluster (volume, nc or HTTP server)
 
 # TODO: Script generating this script and _worker not to copy paste
+
+# TODO: Possibility to connect to all workers via SSH
+
+echo "=== FINISHED ==="
