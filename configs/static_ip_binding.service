@@ -2,7 +2,7 @@
 Description=Static IP binding
 
 [Service]
-ExecStart=/bin/bash /home/kube/kubernetes-lab-setup-repo/scripts/set_static_ip.sh
+ExecStart=/bin/bash /home/kube/kubernetes-lab-setup-repo/scripts/server_setup/set_static_ip.sh
 
 [Install]
 WantedBy=multi-user.target

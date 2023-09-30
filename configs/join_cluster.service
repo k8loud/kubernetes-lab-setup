@@ -1,0 +1,8 @@
+[Unit]
+Description=Join Kubernetes cluster
+
+[Service]
+ExecStart=/bin/bash /home/kube/kubernetes-lab-setup-repo/scripts/setup-k8s-node/join_cluster.sh
+
+[Install]
+WantedBy=multi-user.target

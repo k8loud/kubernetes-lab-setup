@@ -14,9 +14,9 @@
 
 ### Create a snapshot "Clean install"
 
-### Download [00_initial.sh](https://raw.githubusercontent.com/k8loud/kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh)
+### Download [00_initial.sh](https://raw.githubusercontent.com/k8loud/kubernetes-lab-setup/master/scripts/server_setup/00_initial.sh)
 ```bash
-wget -P ~ https://raw.githubusercontent.com/k8loud/kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh
+wget -P ~ https://raw.githubusercontent.com/k8loud/kubernetes-lab-setup/master/scripts/server_setup/00_initial.sh
 chmod +x ~/00_initial.sh
 ```
 
@@ -35,7 +35,7 @@ It will be useful when setting up another VMs
 
 From now on all steps will have to be applied to all VMs
 
-### Run [00_initial.sh](https://raw.githubusercontent.com/k8loud/kubernetes-lab-setup/master/scripts/ubuntu_server_setup/00_initial.sh)
+### Run [00_initial.sh](https://raw.githubusercontent.com/k8loud/kubernetes-lab-setup/master/scripts/server_setup/00_initial.sh)
 ```bash
 ~/00_initial.sh
 ```
@@ -52,10 +52,10 @@ The setup process is described in [this section](#physical-machine-setup)
 hostnamectl set-hostname <kube$i>
 ```
 
-### Run [01_after_adapter_setup.sh](https://raw.githubusercontent.com/k8loud/kubernetes-lab-setup/master/scripts/ubuntu_server_setup/01_after_adapter_setup.sh)
+### Run [01_after_adapter_setup.sh](https://raw.githubusercontent.com/k8loud/kubernetes-lab-setup/master/scripts/server_setup/01_after_adapter_setup.sh)
 **Make sure all of the VMs are on before running the script**
 ```bash
-~/kubernetes-lab-setup-repo/scripts/ubuntu_server_setup/01_after_adapter_setup.sh
+~/kubernetes-lab-setup-repo/scripts/server_setup/01_after_adapter_setup.sh
 ```
 
 ### Change processors amount and RAM on each VM
@@ -107,14 +107,8 @@ vm-kube1-off
 1. Enter scripts/setup-k8s-node directory
 2. Run ```sudo ./02_big_pp_script.sh```
 3. Next steps depend on the node type you want to create
-   1. for control-plan 
-      1. run ```sudo ./03_init_controll_plane.sh```
-      2. run 
-         ```
-         mkdir -p $HOME/.kube
-         sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-         sudo chown $(id -u):$(id -g) $HOME/.kube/config
-         ```
+   1. for control-plane
+      1. run ```sudo ./03m_init_control_plane_and_copy_kube_conf```
   
    2. to join a node to the cluster on a master node run ```kubeadm token create --print-join-command``` and run prompted command with sudo mode in worker node
 

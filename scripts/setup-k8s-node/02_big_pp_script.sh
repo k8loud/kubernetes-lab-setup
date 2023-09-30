@@ -3,7 +3,6 @@
 echo "==========================[ Installing kubelet, kubectl, kubeadm ]=========================="
 sh ./install_kubes.sh
 
-
 echo "==========================[ Disable swap space ]=========================="
 sh ./disable_swap_space.sh
 

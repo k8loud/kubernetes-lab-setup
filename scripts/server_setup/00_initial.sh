@@ -2,8 +2,14 @@
 
 # This won't work long time, config in this path will be overriden
 # Temporary fix so resolvconf can be downloaded
-echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf
-sudo apt -y install resolvconf
+while : ; do
+  echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf
+  sudo apt update
+  echo "Y" | sudo apt -y install resolvconf
+  if [ $? -eq 0 ]; then
+    break
+  fi
+done
 
 sudo mkdir -p /etc/resolvconf/resolv.conf.d
 echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolvconf/resolv.conf.d/head

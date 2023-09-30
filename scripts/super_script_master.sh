@@ -1,8 +1,13 @@
 #!/bin/bash
 
-echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf
-sudo apt update
-echo "Y" | sudo apt -y install resolvconf
+while : ; do
+  echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf
+  sudo apt update
+  echo "Y" | sudo apt -y install resolvconf
+  if [ $? -eq 0 ]; then
+    break
+  fi
+done
 
 sudo mkdir -p /etc/resolvconf/resolv.conf.d
 echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolvconf/resolv.conf.d/head
@@ -95,7 +100,9 @@ systemctl enable kubelet
 
 kubeadm config images pull
 
-kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-cert-extra-sans "149.156.10.*"
+kubeadm init --pod-network-cidr=10.244.0.0/16
+# FIXME: Wildcard doesn't work
+#kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-cert-extra-sans "149.156.10.*"
 
 
 mkdir -p $HOME/.kube
