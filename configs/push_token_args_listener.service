@@ -2,7 +2,7 @@
 Description=Push Kubernetes join token to workers
 
 [Service]
-ExecStart=/bin/bash /home/kube/kubernetes-lab-setup-repo/scripts/setup-k8s-node/push_token_args_listener.sh
+ExecStart=/bin/bash /home/kube/kubernetes-lab-setup-repo/scripts/kube_setup/push_token_args_listener.sh
 
 [Install]
 WantedBy=multi-user.target

@@ -1,6 +1,6 @@
 //resource "openstack_networking_subnet_v2" "ii-executor-subnet" {
 //  cidr            = "192.168.200.0/24"
-//  dns_nameservers = ["192.168.200.254"]
+//  dns_nameservers = ["8.8.8.8"]
 //  enable_dhcp     = true
 //  gateway_ip      = "192.168.200.1"
 //  ip_version      = 4
@@ -10,6 +10,6 @@
 //
 //  allocation_pool {
 //    start = "192.168.187.2"
-//    end   = "192.168.187.253"
+//    end   = "192.168.187.254"
 //  }
 //}

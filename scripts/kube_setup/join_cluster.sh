@@ -68,10 +68,14 @@ function join_cluster() {
 
 function main() {
   while : ; do
-    find_and_ask_master
-    [[ -z "$token_args" ]] || break
+    while : ; do
+      find_and_ask_master
+      [[ -z "$token_args" ]] || break
+    done
+    join_cluster
+    # The token could've expired
+    [[ $? -eq 0 ]] && break
   done
-  join_cluster
 }
 
 main

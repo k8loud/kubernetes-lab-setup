@@ -40,3 +40,6 @@ terraform.rc
 vm_images/
 terraform/.terraform*
 terraform/terraform.*
+
+scripts/gen/target/
+

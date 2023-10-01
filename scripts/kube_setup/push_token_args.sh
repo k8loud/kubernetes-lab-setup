@@ -1,7 +1,5 @@
 #!/bin/bash
 
-PUSH_TIMEOUT_S=5
-
 function get_token_args() {
   api_url=$(echo $(kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}' && echo "") | cut -c 9-)
 
@@ -15,20 +13,8 @@ function get_token_args() {
   token_args="$api_url $latest_token $cert_hash"
 }
 
-#function push_to_host() {
-#  local ip="$1"
-#  local port="$2"
-#  local data="$3"
-#
-#  echo $data | nc -q $PUSH_TIMEOUT_S $ip $port
-#}
-
 function main() {
-#  echo "Received token args request from $TCPREMOTEIP"
   get_token_args
-#  echo "Answering with token args '$token_args'"
-  # TCPREMOTEIP is set by tcpserver
-#  push_to_host $TCPREMOTEIP $PUSH_PORT $token_args
   echo $token_args
 }
 

@@ -14,7 +14,7 @@ resource "openstack_compute_instance_v2" "kube_master" {
     name = "ii-executor-network"
   }
 
-  user_data = file("../scripts/super_script_master.sh")
+  user_data = file("../scripts/gen/target/super_script_master.sh")
 }
 
 
@@ -34,7 +34,7 @@ resource "openstack_compute_instance_v2" "kube_worker" {
     name = "ii-executor-network"
   }
 
-  user_data = file("../scripts/super_script_worker.sh")
+  user_data = file("../scripts/gen/target/super_script_worker.sh")
   count = 1
 }
 

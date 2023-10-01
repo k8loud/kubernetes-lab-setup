@@ -1,0 +1,6 @@
+server_setup/00_initial.sh
+kube_setup/install_kubes.sh
+kube_setup/disable_swap_space.sh
+kube_setup/install_container_runtime.sh
+kube_setup/03m_init_control_plane_and_copy_kube_conf.sh
+kube_setup/04m_setup_push_token_args_service.sh
