@@ -2,7 +2,7 @@
 Description=Join Kubernetes cluster
 
 [Service]
-ExecStart=/bin/bash /home/kube/kubernetes-lab-setup-repo/scripts/kube_setup/join_cluster.sh
+ExecStart=/bin/bash /home/ubuntu/kubernetes-lab-setup-repo/scripts/kube_setup/join_cluster.sh
 
 [Install]
 WantedBy=multi-user.target

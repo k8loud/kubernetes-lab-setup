@@ -3,13 +3,16 @@ cd "$(dirname "$0")"
 source ./constants.sh
 
 SCRIPTS_PATH=".."
+SHEBANG="#!/bin/bash"
 
 function append_start() {
-  echo -e "\necho '===== Starting $line ====='" >> "$script"
+  local step="$1"
+  echo -e "\necho '===== Starting $step ====='" >> "$script"
 }
 
 function append_end() {
-  echo -e "\necho '===== Finished $line ====='" >> "$script"
+  local step="$1"
+  echo -e "\necho '===== Finished $step ====='" >> "$script"
 }
 
 function substitute_variables() {
@@ -20,24 +23,27 @@ function substitute_variables() {
 function generate_script() {
   local recipe="$1"
   local script="target/$recipe.sh"
-  echo '' > "$script"
+  echo "$SHEBANG" > "$script"
   chmod +x "$script"
   while IFS="" read -r p || [ -n "$p" ]; do
-    local line=$(printf '%s\n' "$p")
-    if [[ ${line::1} == '>' ]]; then
-      line="${line:1}" # Remove eval indicating char
-      echo "Appending eval '$line'"
-      echo -e "\n#>$line" >> "$script"
-      echo "$(substitute_variables "$line")" >> "$script"
+    local step=$(printf '%s\n' "$p")
+    if [[ ${step::1} == "$COMMENT_CHAR" ]]; then
+      step="${step:1}" # Remove $COMMENT_CHAR
+      echo "Skipping commented out step: $step"
+    elif [[ ${step::1} == "$EVAL_CHAR" ]]; then
+      step="${step:1}" # Remove $EVAL_CHAR
+      echo "Appending eval: $step"
+      echo -e "\n#$EVAL_CHAR$step" >> "$script"
+      echo "$(substitute_variables "$step")" >> "$script"
     else
-      local sub_script=$(echo "$SCRIPTS_PATH/$line")
-      echo "Appending $sub_script"
+      local sub_script=$(echo "$SCRIPTS_PATH/$step")
+      echo "Appending: $sub_script"
       append_start "$sub_script"
-      cat "$sub_script" >> "$script"
+      cat "$sub_script" | grep -v "$SHEBANG" >> "$script"
       append_end "$sub_script"
     fi
   done < "recipe/$recipe.txt"
-  echo -e "echo '===== Finished ALL_lineS ====='\n" >> "$script"
+  append_end "ALL_STEPS"
   echo
 }
 
@@ -47,7 +53,7 @@ function main() {
     recipe="${recipe_file%.*}"
     recipe=$(basename $recipe)
     echo "Generating based on $recipe"
-    generate_script "$(basename $recipe)"
+    generate_script "$recipe"
   done
 }
 

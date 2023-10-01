@@ -1,5 +1,5 @@
 server_setup/00_initial.sh
->git checkout $BRANCH
+%cd /home/ubuntu/kubernetes-lab-setup && git checkout $BRANCH
 kube_setup/install_kubes.sh
 kube_setup/disable_swap_space.sh
 kube_setup/install_container_runtime.sh
