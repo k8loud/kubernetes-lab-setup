@@ -1,8 +1,21 @@
 #!/bin/bash
 cd "$(dirname "$0")"
+source ./constants.sh
 
 SCRIPTS_PATH=".."
-BRANCH="feature/more-terraform"
+
+function append_start() {
+  echo -e "\necho '===== Starting $line ====='" >> "$script"
+}
+
+function append_end() {
+  echo -e "\necho '===== Finished $line ====='" >> "$script"
+}
+
+function substitute_variables() {
+  local line="$1"
+  eval "echo \"$line\""
+}
 
 function generate_script() {
   local recipe="$1"
@@ -10,14 +23,21 @@ function generate_script() {
   echo '' > "$script"
   chmod +x "$script"
   while IFS="" read -r p || [ -n "$p" ]; do
-    local sub_script=$(printf '%s\n' "$p")
-    local sub_script_path_aware=$(echo "$SCRIPTS_PATH/$sub_script")
-    echo "Appending $sub_script"
-    cat "$sub_script_path_aware" >> "$script"
-    [[ "$sub_script" == "server_setup/00_initial.sh" ]] && echo "git checkout $BRANCH" >> "$script"
-    echo -e "echo '===== Finished $sub_script ====='\n\n\n" >> "$script"
+    local line=$(printf '%s\n' "$p")
+    if [[ ${line::1} == '>' ]]; then
+      line="${line:1}" # Remove eval indicating char
+      echo "Appending eval '$line'"
+      echo -e "\n#>$line" >> "$script"
+      echo "$(substitute_variables "$line")" >> "$script"
+    else
+      local sub_script=$(echo "$SCRIPTS_PATH/$line")
+      echo "Appending $sub_script"
+      append_start "$sub_script"
+      cat "$sub_script" >> "$script"
+      append_end "$sub_script"
+    fi
   done < "recipe/$recipe.txt"
-  echo -e "echo '===== Finished ALL_SUB_SCRIPTS ====='\n" >> "$script"
+  echo -e "echo '===== Finished ALL_lineS ====='\n" >> "$script"
   echo
 }
 
