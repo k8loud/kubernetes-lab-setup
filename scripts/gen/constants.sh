@@ -2,5 +2,5 @@
 
 # Constants that can be used in recipes
 
-BRANCH="feature/more-terraform"
+BRANCH="origin/feature/more-terraform"
 KEYS_PATH="../../configs/keys"

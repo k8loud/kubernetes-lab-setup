@@ -55,7 +55,7 @@ hostnamectl set-hostname <kube$i>
 ### Run [01_after_adapter_setup.sh](https://raw.githubusercontent.com/k8loud/kubernetes-lab-setup/master/scripts/server_setup/01_after_adapter_setup.sh)
 **Make sure all of the VMs are on before running the script**
 ```bash
-~/kubernetes-lab-setup-repo/scripts/server_setup/01_after_adapter_setup.sh
+~/kubernetes-lab-setup/scripts/server_setup/01_after_adapter_setup.sh
 ```
 
 ### Change processors amount and RAM on each VM
