@@ -20,11 +20,13 @@ sudo apt -y upgrade
 sudo apt-get -y install openssh-server
 
 mkdir -p /home/ubuntu/.ssh
-ssh-keygen -o -b 4096 -q -t rsa -N '' -f "/home/ubuntu/.ssh/id_rsa" <<<y >/dev/null 2>&1
+ssh-keygen -o -b 4096 -q -t rsa -N '' -f "/home/ubuntu/.ssh/id_rsa" <<<y
 chmod 600 /home/ubuntu/.ssh/id_rsa
 
 git clone https://github.com/k8loud/kubernetes-lab-setup.git /home/ubuntu/kubernetes-lab-setup
-git config --global --add safe.directory '*' # fix https://stackoverflow.com/questions/72978485/git-submodule-update-failed-with-fatal-detected-dubious-ownership-in-repositor
+# https://stackoverflow.com/questions/40425201/aws-ubuntu-git-setup-error-fatal-home-not-set
+# https://stackoverflow.com/questions/72978485/git-submodule-update-failed-with-fatal-detected-dubious-ownership-in-repositor
+git config --system --add safe.directory '*'
 chown -R ubuntu:ubuntu /home/ubuntu/kubernetes-lab-setup
 
 touch /home/ubuntu/.ssh/authorized_keys
