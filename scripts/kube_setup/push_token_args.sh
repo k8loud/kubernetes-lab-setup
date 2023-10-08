@@ -15,7 +15,7 @@ function get_token_args() {
 
 function main() {
   get_token_args
-  echo $token_args
+  echo "$token_args"
 }
 
 main
