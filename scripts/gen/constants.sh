@@ -1,6 +1,6 @@
 #!/bin/bash
 
-EVAL_CHAR='%'
-COMMENT_CHAR='#'
+# Constants that can be used in recipes
+
 BRANCH="feature/more-terraform"
 KEYS_PATH="../../configs/keys"

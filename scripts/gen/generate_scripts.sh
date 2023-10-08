@@ -2,6 +2,8 @@
 cd "$(dirname "$0")"
 source ./constants.sh
 
+EVAL_CHAR='%'
+COMMENT_CHAR='#'
 SCRIPTS_PATH=".."
 SHEBANG="#!/bin/bash"
 
@@ -48,6 +50,7 @@ function generate_script() {
 }
 
 function main() {
+  mkdir -p "target"
   for recipe_file in recipe/*.txt; do
     [ -e "$recipe_file" ] || continue
     recipe="${recipe_file%.*}"
