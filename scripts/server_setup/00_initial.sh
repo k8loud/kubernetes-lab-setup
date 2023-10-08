@@ -19,13 +19,14 @@ sudo apt update
 sudo apt -y upgrade
 sudo apt-get -y install openssh-server
 
-ssh-keygen -o -b 4096 -t rsa
+mkdir -p /home/ubuntu/.ssh && touch /home/ubuntu/.ssh/id_rsa
+echo "/home/ubuntu/.ssh/id_rsa" | ssh-keygen -o -b 4096 -t rsa
 
 git clone https://github.com/k8loud/kubernetes-lab-setup.git /home/ubuntu/kubernetes-lab-setup
 git config --global --add safe.directory '*' # fix https://stackoverflow.com/questions/72978485/git-submodule-update-failed-with-fatal-detected-dubious-ownership-in-repositor
 chown -R ubuntu:ubuntu /home/ubuntu/kubernetes-lab-setup
 
-touch -p /home/ubuntu/.ssh/authorized_keys
+touch /home/ubuntu/.ssh/authorized_keys
 chown -R ubuntu:ubuntu /home/ubuntu/.ssh
 
 # TODO: Add .bashrc or sth for storing vars, aliases and functions
