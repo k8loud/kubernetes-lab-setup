@@ -62,6 +62,9 @@ function join_cluster() {
   latest_token="${parts[1]}"
   cert_hash="${parts[2]}"
 
+  echo "Running 'kubeadm reset' (reset the worker's kube config)"
+  echo "y" | kubeadm reset
+
   cmd=$(echo "kubeadm join $api_url --token $latest_token --discovery-token-ca-cert-hash sha256:$cert_hash")
   eval $cmd
 }
