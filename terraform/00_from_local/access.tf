@@ -4,7 +4,8 @@ resource "openstack_compute_instance_v2" "access" {
   flavor_name = "h1.smedium"
   key_pair = "default"
   security_groups = [
-    "default"]
+    "default"
+  ]
 
   metadata = {
     label = "access"

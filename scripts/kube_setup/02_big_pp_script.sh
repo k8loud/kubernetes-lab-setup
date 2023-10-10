@@ -8,5 +8,3 @@ sh ./disable_swap_space.sh
 
 echo "==========================[ Install CRI-O container runtime ]=========================="
 sh ./install_container_runtime.sh
-
-# TODO: Possibility to connect to all workers via SSH

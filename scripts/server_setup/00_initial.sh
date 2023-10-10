@@ -32,6 +32,4 @@ chown -R ubuntu:ubuntu /home/ubuntu/kubernetes-lab-setup
 touch /home/ubuntu/.ssh/authorized_keys
 chown -R ubuntu:ubuntu /home/ubuntu/.ssh
 
-# TODO: Add .bashrc or sth for storing vars, aliases and functions
-
 # Shutdown and change the adapter's settings

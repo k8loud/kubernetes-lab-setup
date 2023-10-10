@@ -4,7 +4,8 @@ resource "openstack_compute_instance_v2" "kube_master" {
   flavor_name = "h2d.slarge"
   key_pair = "default"
   security_groups = [
-    "default"]
+    "default"
+  ]
 
   metadata = {
     label = "kube"
@@ -24,7 +25,8 @@ resource "openstack_compute_instance_v2" "kube_worker" {
   flavor_name = "h2.medium"
   key_pair = "default"
   security_groups = [
-    "default"]
+    "default"
+  ]
 
   metadata = {
     label = "kube"
@@ -37,5 +39,3 @@ resource "openstack_compute_instance_v2" "kube_worker" {
   user_data = file("../../scripts/gen/target/super_script_worker.sh")
   count = 1
 }
-
-# TODO: conditional spawning from ready images or clean install
