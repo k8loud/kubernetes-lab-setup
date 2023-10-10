@@ -9,7 +9,8 @@ terraform {
 }
 
 provider "openstack" {
-  user_name = "plgppycia"
+  user_name = var.openstack_username
+  password = var.openstack_password
   auth_url = "https://api.cloud.cyfronet.pl:5000/v3"
   region = "RegionOne"
   user_domain_name = "Default"

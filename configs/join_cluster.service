@@ -1,0 +1,8 @@
+[Unit]
+Description=Join Kubernetes cluster
+
+[Service]
+ExecStart=/bin/bash /home/ubuntu/kubernetes-lab-setup/scripts/kube_setup/join_cluster.sh
+
+[Install]
+WantedBy=multi-user.target
