@@ -24,6 +24,10 @@ resource "openstack_compute_instance_v2" "kube_worker" {
   image_name = "Ubuntu-Server-22.04-20230914"
   flavor_name = "h2.medium"
   key_pair = "default"
+
+  # to make sure that master is created first?
+#  depends_on = [openstack_compute_instance_v2.kube_master]
+
   security_groups = [
     "default"
   ]
