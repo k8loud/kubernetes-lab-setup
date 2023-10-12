@@ -44,3 +44,4 @@ configs/keys/*.pem
 configs/keys/*.pub
 
 scripts/gen/target/
+.terraform/
