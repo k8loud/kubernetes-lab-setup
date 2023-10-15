@@ -18,15 +18,13 @@ resource "openstack_compute_instance_v2" "kube_master" {
   user_data = file("../../scripts/gen/target/super_script_master.sh")
 }
 
-
 resource "openstack_compute_instance_v2" "kube_worker" {
-  name = "kube_worker"
+  depends_on = [openstack_compute_instance_v2.kube_master]
+
+  name = "kube_worker-${count.index}"
   image_name = "Ubuntu-Server-22.04-20230914"
   flavor_name = "h2.medium"
   key_pair = "default"
-
-  # to make sure that master is created first?
-#  depends_on = [openstack_compute_instance_v2.kube_master]
 
   security_groups = [
     "default"
@@ -41,5 +39,5 @@ resource "openstack_compute_instance_v2" "kube_worker" {
   }
 
   user_data = file("../../scripts/gen/target/super_script_worker.sh")
-  count = 1
+  count = 4
 }
