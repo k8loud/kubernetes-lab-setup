@@ -18,16 +18,10 @@ resource "openstack_compute_instance_v2" "kube_master" {
   user_data = file("../../scripts/gen/target/super_script_master.sh")
 }
 
-resource "random_string" "worker-suffix" {
-  length = var.worker_hostname_suffix_length
-  special = false
-  upper = false
-}
-
 resource "openstack_compute_instance_v2" "kube_worker" {
   depends_on = [openstack_compute_instance_v2.kube_master]
 
-  name = "kube_worker-${random_string.worker-suffix.result}"
+  name = "kube_worker-${openstack_compute_instance_v2.kube_worker.id}"
   image_name = "Ubuntu-Server-22.04-20230914"
   flavor_name = "h2.medium"
   key_pair = "default"
