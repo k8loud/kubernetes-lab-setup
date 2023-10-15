@@ -18,5 +18,5 @@ variable "master_ip" {
 variable "worker_hostname_suffix_length" {
   description = "Length of random suffix appended to Kube worker node's hostname"
   type = number
-  default = 16
+  default = 8
 }

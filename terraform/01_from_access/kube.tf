@@ -24,7 +24,7 @@ resource "openstack_compute_instance_v2" "kube_master" {
 
 
 resource "openstack_compute_instance_v2" "kube_worker" {
-  name = "kube_worker-${random_string.worker-suffix}"
+  name = "kube_worker-${random_string.worker-suffix.result}"
   image_name = "Ubuntu-Server-22.04-20230914"
   flavor_name = "h2.medium"
   key_pair = "default"
