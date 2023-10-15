@@ -45,5 +45,5 @@ resource "openstack_compute_instance_v2" "kube_worker" {
   }
 
   user_data = file("../../scripts/gen/target/super_script_worker.sh")
-  count = 1
+  count = 4
 }
