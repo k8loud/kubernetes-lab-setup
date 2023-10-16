@@ -13,3 +13,4 @@ sudo chown ubuntu:ubuntu /home/ubuntu/.kube/config
 kubeadm token create --print-join-command
 EOF
 
+kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
