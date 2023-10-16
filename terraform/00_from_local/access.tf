@@ -1,6 +1,6 @@
 resource "openstack_compute_instance_v2" "access" {
   name = "access"
-  image_name = openstack_images_image_v2.ubuntu-server.name
+  image_name = data.openstack_images_image_v2.ubuntu_server.name
   flavor_name = "h1.smedium"
   key_pair = "default"
   security_groups = [
@@ -18,11 +18,5 @@ resource "openstack_compute_instance_v2" "access" {
   user_data = file("../../scripts/gen/target/super_script_access.sh")
 }
 
-resource "openstack_networking_floatingip_v2" "fip_1" {
-  pool = "external-10-192"
-}
 
-resource "openstack_compute_floatingip_associate_v2" "fip_1" {
-  floating_ip = openstack_networking_floatingip_v2.fip_1.address
-  instance_id = openstack_compute_instance_v2.access.id
-}
+
