@@ -16,3 +16,12 @@ EOF
 export KUBECONFIG=/home/ubuntu/.kube/config
 kubectl apply -f https://raw.githubusercontent.com/k8loud/microservices-demo/feature/fix-deployment/deploy/kubernetes/flannel.yaml
 
+sleep 30
+
+sudo ip link delete cni0 type bridge
+
+kubectl scale deployment.apps/coredns -n kube-system --replicas=0
+
+sleep 10
+
+kubectl scale deployment.apps/coredns -n kube-system --replicas=2
