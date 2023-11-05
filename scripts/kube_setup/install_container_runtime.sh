@@ -37,3 +37,6 @@ sudo systemctl daemon-reload
 sudo systemctl restart crio
 sudo systemctl enable crio
 systemctl status crio
+
+# https://github.com/cri-o/cri-o/issues/5799
+sudo rm /etc/cni/net.d/100-crio-bridge.conflist
