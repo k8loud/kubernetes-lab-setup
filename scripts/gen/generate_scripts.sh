@@ -29,7 +29,9 @@ function generate_script() {
   chmod +x "$script"
   while IFS="" read -r p || [ -n "$p" ]; do
     local step=$(printf '%s\n' "$p")
-    if [[ ${step::1} == "$COMMENT_CHAR" ]]; then
+    if [[ -z "${step// }" ]]; then
+      : # Empty / whitespace only
+    elif [[ ${step::1} == "$COMMENT_CHAR" ]]; then
       step="${step:1}" # Remove $COMMENT_CHAR
       echo "Skipping commented out step: $step"
     elif [[ ${step::1} == "$EVAL_CHAR" ]]; then
