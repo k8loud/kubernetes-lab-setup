@@ -4,7 +4,7 @@ systemctl enable kubelet
 
 kubeadm config images pull
 
-kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-cert-extra-sans=149.156.10.131 --cri-socket=unix:///var/run/crio/crio.sock
+kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-cert-extra-sans=149.156.10.138 --cri-socket=unix:///var/run/crio/crio.sock
 
 sudo -i -u ubuntu bash << EOF
 mkdir -p /home/ubuntu/.kube
@@ -14,14 +14,4 @@ kubeadm token create --print-join-command
 EOF
 
 export KUBECONFIG=/home/ubuntu/.kube/config
-kubectl apply -f https://raw.githubusercontent.com/k8loud/microservices-demo/feature/fix-deployment/deploy/kubernetes/flannel.yaml
-
-sleep 30
-
-sudo ip link delete cni0 type bridge
-
-kubectl scale deployment.apps/coredns -n kube-system --replicas=0
-
-sleep 10
-
-kubectl scale deployment.apps/coredns -n kube-system --replicas=2
+kubectl apply -f https://raw.githubusercontent.com/k8loud/microservices-demo/master/deploy/kubernetes/flannel.yaml

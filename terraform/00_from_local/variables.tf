@@ -10,6 +10,11 @@ variable "openstack_password" {
   sensitive   = true
 }
 
+variable "access_ip" {
+  description = "IP address for access node"
+  type = string
+}
+
 variable "create_flavor_h1smedium" {
   description = "Create h1.smedium flavor (for access VM)"
   type        = bool
