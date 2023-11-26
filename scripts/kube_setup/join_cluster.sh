@@ -79,6 +79,8 @@ function main() {
     # The token could've expired
     [[ $? -eq 0 ]] && break
   done
+
+  sudo ip link delete cni0 type bridge
 }
 
 main
