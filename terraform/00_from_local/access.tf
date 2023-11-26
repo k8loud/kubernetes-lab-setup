@@ -1,6 +1,6 @@
 resource "openstack_compute_instance_v2" "access" {
   name = "access"
-  image_name = openstack_images_image_v2.ubuntu-server.name
+  image_name = "Ubuntu-Server-22.04-20230914"
   flavor_name = "h1.smedium"
   key_pair = "default"
   security_groups = [

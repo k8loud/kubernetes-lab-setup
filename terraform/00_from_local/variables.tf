@@ -22,14 +22,14 @@ variable "create_image_ubuntu_server" {
   default     = true
 }
 
-variable "create_network_main" {
-  description = "Create the main network"
+variable "create_network_and_sub_main" {
+  description = "Create the main network and subnetwork"
   type        = bool
   default     = true
 }
 
-variable "create_subnetwork_main" {
-  description = "Create the main subnetwork"
+variable "create_secgroup_default" {
+  description = "Create the default security group"
   type        = bool
   default     = true
 }

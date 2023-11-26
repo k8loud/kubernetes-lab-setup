@@ -1,7 +1,7 @@
 resource "openstack_networking_network_v2" "ii-executor-network" {
   name           = "ii-executor-network"
   admin_state_up = "true"
-  count          = var.create_network_main ? 1 : 0
+  count          = var.create_network_and_sub_main ? 1 : 0
 }
 
 resource "openstack_networking_subnet_v2" "ii-executor-subnet" {
@@ -13,7 +13,7 @@ resource "openstack_networking_subnet_v2" "ii-executor-subnet" {
   name            = "ii-executor-subnet"
   network_id      = openstack_networking_network_v2.ii-executor-network[0].id
   region          = "RegionOne"
-  count           = var.create_subnetwork_main ? 1 : 0
+  count           = var.create_network_and_sub_main ? 1 : 0
 
   allocation_pool {
     start = "192.168.187.2"
