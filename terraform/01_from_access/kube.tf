@@ -1,4 +1,4 @@
-resource "openstack_compute_instance_v2" "kube-master" {
+resource "openstack_compute_instance_v2" "kube_master" {
   name = "kube-master"
   image_name = "Ubuntu-Server-22.04-20230914"
   flavor_name = "h2d.slarge"
@@ -18,8 +18,8 @@ resource "openstack_compute_instance_v2" "kube-master" {
   user_data = file("../../scripts/gen/target/super_script_master.sh")
 }
 
-resource "openstack_compute_instance_v2" "kube-worker" {
-  depends_on = [openstack_compute_instance_v2.kube-master]
+resource "openstack_compute_instance_v2" "kube_worker" {
+  depends_on = [openstack_compute_instance_v2.kube_master]
 
   name = "kube-worker-${count.index}"
   image_name = "Ubuntu-Server-22.04-20230914"

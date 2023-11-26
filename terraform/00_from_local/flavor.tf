@@ -1,4 +1,4 @@
-resource "openstack_compute_flavor_v2" "h1-smedium" {
+resource "openstack_compute_flavor_v2" "h1_smedium" {
   name  = "h1.smedium"
   ram   = "7000"
   vcpus = "2"
