@@ -20,7 +20,6 @@ resource "openstack_compute_instance_v2" "kube_master" {
 
 resource "openstack_compute_instance_v2" "kube_worker" {
   depends_on = [openstack_compute_instance_v2.kube_master]
-
   name = "kube-worker-${count.index}"
   image_name = "Ubuntu-Server-22.04-20230914"
   flavor_name = "h2.medium"
