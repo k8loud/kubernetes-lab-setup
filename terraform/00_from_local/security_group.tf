@@ -1,6 +1,6 @@
 resource "openstack_networking_secgroup_v2" "secgroup-default" {
   count       = var.create_secgroup_default ? 1 : 0
-  name        = "test-secgroup"
+  name        = "default"
   description = "Default security group"
 }
 
