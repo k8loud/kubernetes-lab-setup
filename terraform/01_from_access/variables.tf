@@ -12,7 +12,6 @@ variable "openstack_password" {
 variable "master_ip" {
   description = "IP address for master node"
   type = string
-  default = "149.156.10.149"
 }
 
 variable "create_flavor_h2dslarge" {

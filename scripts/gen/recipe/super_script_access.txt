@@ -1,4 +1,5 @@
 server_setup/00_initial.sh
+%cd /home/ubuntu/kubernetes-lab-setup && git checkout -t $BRANCH
 %echo '$(cat $KEYS_PATH/default.pem)' >> /home/ubuntu/.ssh/id_rsa
 %echo '$(cat $KEYS_PATH/default.pub)' >> /home/ubuntu/.ssh/id_rsa.pub
 %chown -R ubuntu:ubuntu /home/ubuntu/.ssh # chown once again so that keys have correct ownership

@@ -2,5 +2,5 @@
 
 # Constants that can be used in recipes
 
-BRANCH="origin/feature/fix-k8s"
+BRANCH="origin/feature/improve-terraform"
 KEYS_PATH="../../configs/keys"
