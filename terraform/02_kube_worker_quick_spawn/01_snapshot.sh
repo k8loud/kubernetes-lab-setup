@@ -1,7 +1,7 @@
 #!/bin/bash
 
-TMP_SERVER_NAME="kube_worker-quick-spawn-tmp"
-TARGET_SNAPSHOT_NAME="kube_worker-quick-spawn"
+TMP_SERVER_NAME="kube-worker-quick-spawn-tmp"
+TARGET_SNAPSHOT_NAME="kube-worker-quick-spawn"
 SERVER_LIST_RES_WAIT_S=1
 
 echo "Stopping server $TMP_SERVER_NAME"

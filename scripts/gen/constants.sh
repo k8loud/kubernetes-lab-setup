@@ -2,5 +2,5 @@
 
 # Constants that can be used in recipes
 
-BRANCH="origin/feature/fix-k8s"
+BRANCH="origin/master"
 KEYS_PATH="../../configs/keys"

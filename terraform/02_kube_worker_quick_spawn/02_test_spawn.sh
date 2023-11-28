@@ -1,7 +1,7 @@
 #!/bin/bash
 
 FLAVOR="h2.medium"
-SNAPSHOT_NAME="kube_worker-quick-spawn"
+SNAPSHOT_NAME="kube-worker-quick-spawn"
 USER_DATA_PATH="../../scripts/kube_setup/05w_setup_join_cluster_service.sh"
 KEY_NAME="default"
 
