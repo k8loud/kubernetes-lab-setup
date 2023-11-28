@@ -48,6 +48,13 @@ git clone git@github.com:k8loud/microservices-demo.git
 cd microservices-demo
 
 kubectl apply -f deploy/kubernetes/manifests
+kubectl apply -f deploy/kubernetes/manifests-monitoring
+```
+
+If there are no SockShop dashboards available in Grafana 
+```
+kubectl delete job/grafana-import-dashboards
+kubectl apply -f deploy/kubernetes/manifests-monitoring
 ```
 
 ### [Metrics-Deployment](https://github.com/k8loud/Metrics-Deployment)
@@ -55,22 +62,6 @@ kubectl apply -f deploy/kubernetes/manifests
 git clone git@github.com:k8loud/Metrics-Deployment.git
 cd Metrics-Deployment
 
-kubectl apply -f Deployment/volume-creation/
-kubectl apply -f Deployment/manifests/
-```
-
-### [kube-prometheus](https://github.com/k8loud/kube-prometheus)
-```
-git clone git@github.com:k8loud/kube-prometheus.git
-cd kube-prometheus
-
-# Create the namespace and CRDs, and then wait for them to be available before creating the remaining resources
-# Note that due to some CRD size we are using kubectl server-side apply feature which is generally available since kubernetes 1.22.
-# If you are using previous kubernetes versions this feature may not be available and you would need to use kubectl create instead.
-kubectl apply --server-side -f manifests/setup
-kubectl wait \
---for condition=Established \
---all CustomResourceDefinition \
---namespace=monitoring
+kubectl apply -f volume-creation/
 kubectl apply -f manifests/
 ```
